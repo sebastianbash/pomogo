@@ -36,6 +36,10 @@ body {
   outline: none;
 }
 
+.gl__countdown {
+  font-family: "Bebas Neue", cursive;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     @apply bg-[var(--white-color)] dark:bg-[var(--dark-bg-color)];
