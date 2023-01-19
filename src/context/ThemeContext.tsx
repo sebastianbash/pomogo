@@ -1,33 +1,14 @@
+import { getInitialTheme } from "@/utils";
 import { useState, useEffect, createContext } from "react";
 import {
   ThemeContextProps,
   ThemesProviderProps,
 } from "./interfaces/themeContext";
 
-const getInitialTheme = () => {
-  if (typeof window !== "undefined" && window.localStorage) {
-    const storedPrefs = window.localStorage.getItem("theme");
-    if (typeof storedPrefs === "string") {
-      return storedPrefs;
-    }
-
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    if (userMedia.matches) {
-      return "dark";
-    }
-  }
-
-  // * If you want to use dark theme as the default, return 'dark' instead
-  return "light";
-};
-
-// * create context
 export const ThemeContext = createContext<ThemeContextProps>(
   {} as ThemeContextProps,
 );
-export default ThemeContext;
 
-// * themes provider
 export const ThemesProvider = ({
   initialTheme,
   children,
