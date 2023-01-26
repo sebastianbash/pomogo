@@ -10,7 +10,14 @@
   },
   "pomodoro": {
     "title": "Pomodoro",
-    "countdown": {
+    "components": {
+      "tabStates": {
+        "tabs": {
+          "work": "Work",
+          "short": "Short",
+          "long": "Long"
+        }
+      }
     },
     "settings": {
       "modal": {
@@ -34,6 +41,11 @@
           "autoStart": {
             "label": "Auto Start",
             "description": "Start the next state automatically"
+          },
+          "languages": {
+            "label": "Languages",
+            "english": "English",
+            "spanish": "Spanish"
           }
         },
         "footer": {
