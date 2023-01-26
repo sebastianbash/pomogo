@@ -45,12 +45,12 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Default Tab
   const defaultTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-default space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-default space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
         <button
           className={
             executing.active === "work"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-default-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-default-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={workStateRef}
           // onClick={workState}
@@ -77,8 +77,8 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
         <button
           className={
             executing.active === "short"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-default-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-default-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={shortStateRef}
           // onClick={shortBreakState}
@@ -105,8 +105,8 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
         <button
           className={
             executing.active === "long"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-default-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-default-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={longStateRef}
           // onClick={longBreakState}
@@ -137,7 +137,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Hard Tab
   const hardTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-hard space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
         <button
           className={
             executing.active === "work"
@@ -229,12 +229,12 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Custom Tab
   const customTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-hard space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
         <button
           className={
             executing.active === "work"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-custom-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-custom-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={workStateRef}
           // onClick={workState}
@@ -261,8 +261,8 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
         <button
           className={
             executing.active === "short"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-custom-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-custom-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={shortStateRef}
           // onClick={shortBreakState}
@@ -289,8 +289,8 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
         <button
           className={
             executing.active === "long"
-              ? "countdown__config-tabs-hard-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
-              : "countdown__config-tabs-hard-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              ? "countdown__config-tabs-custom-button border border-black dark:border-white rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
+              : "countdown__config-tabs-custom-button border border-slate-400 dark:border-white/40 rounded-md md:w-48 md:h-24 p-4 flex flex-col justify-between"
           }
           ref={longStateRef}
           // onClick={longBreakState}
@@ -320,7 +320,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
 
   return (
     <div className="countdown__config-tabs">
-      <div className="countdown__config-tabs-navigation space-x-4 md:mb-4">
+      <div className="countdown__config-tabs-navigation space-x-4 mt-4 md:mt-0 md:mb-4">
         <button
           className={
             activeTab === "default"
@@ -355,7 +355,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
           {t(`${lngTimes}.custom`)}
         </button>
       </div>
-      <div className="countdown__config-tabs-content md:mb-4">
+      <div className="countdown__config-tabs-content mt-4 md:mt-0 mb-4">
         {renderTab()}
       </div>
     </div>

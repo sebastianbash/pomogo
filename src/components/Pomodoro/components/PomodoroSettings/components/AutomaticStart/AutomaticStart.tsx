@@ -10,7 +10,7 @@ const AutomaticStart: React.FC<AutomaticStartInterface> = ({
 }) => {
   const automaticLng: string = "pomodoro.settings.modal.body.autoStart";
   return (
-    <div className="border-t-2 md:mb-4">
+    <div className="border-t-2 mb-4">
       <div className="flex items-center">
         <h2 className="font-bold">{t(`${automaticLng}.label`)}</h2>
         <button className="text-3xl ml-auto" onClick={setAutomaticStart}>

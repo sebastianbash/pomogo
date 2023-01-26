@@ -16,7 +16,7 @@ const PomodoroSettings: React.FC<PomodoroSettingsInterface> = ({
   const lngModal: string = "pomodoro.settings.modal";
 
   return (
-    <div className="countdown__config-modal absolute bg-[var(--light-modal-bg-color)] dark:bg-[var(--dark-modal-bg-color)] w-full h-full rounded-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="countdown__config-modal absolute bg-[var(--light-modal-bg-color)] dark:bg-[var(--dark-modal-bg-color)] w-11/12 h-4/5 md:w-[700px] md:h-2/4 lg:w-[900px] lg:h-[500px] rounded-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="countdown__config-container h-full py-4 px-8 flex flex-col flex-wrap">
         <div className="countdown__config-header border-b-2 pb-2 md:mb-6">
           <h2 className="text-xl flex items-center">

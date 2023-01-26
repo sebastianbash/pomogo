@@ -96,7 +96,7 @@ const Pomodoro: React.FC<PomodoroInterface> = () => {
   const handleConfig = (): void => setIsConfigOpen(!isConfigOpen);
 
   return (
-    <div className="relative">
+    <div className="">
       <TabStates
         work={workStateRef}
         short={shortStateRef}

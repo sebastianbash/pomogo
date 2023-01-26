@@ -17,9 +17,11 @@ const Languages: React.FC<LanguagesInterface> = ({ t }) => {
       <div className="space-x-4">
         <button className="text-lg" onClick={() => handleChangeLng("en")}>
           {t(`${lngLanguages}.english`)}
+          {" 🇺🇸"}
         </button>
         <button className="text-lg" onClick={() => handleChangeLng("es")}>
           {t(`${lngLanguages}.spanish`)}
+          {" 🇪🇸"}
         </button>
       </div>
     </div>
