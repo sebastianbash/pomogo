@@ -1,1 +1,1 @@
-export { default as DinamicTabs } from './DinamicTabs';
+export { default as DinamicTabs } from "./DinamicTabs";

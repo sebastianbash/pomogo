@@ -1,1 +1,1 @@
-export { default as AutomaticStart } from './AutomaticStart';
+export { default as AutomaticStart } from "./AutomaticStart";
