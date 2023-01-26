@@ -5,4 +5,5 @@ export interface PomodoroControlsInterface {
   handlerStart: (event: React.MouseEvent<HTMLButtonElement>) => void;
   handlerResume: (event: React.MouseEvent<HTMLButtonElement>) => void;
   handlerRestart: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handlerConfig: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

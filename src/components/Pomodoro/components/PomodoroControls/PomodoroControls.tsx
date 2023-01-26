@@ -1,4 +1,4 @@
-import { MdPause, MdPlayArrow, MdStop } from "react-icons/md";
+import { MdPause, MdPlayArrow, MdStop, MdSettings } from "react-icons/md";
 import { PomodoroControlsInterface } from "../interfaces";
 
 const PomodoroControls: React.FC<PomodoroControlsInterface> = ({
@@ -8,9 +8,10 @@ const PomodoroControls: React.FC<PomodoroControlsInterface> = ({
   handlerStart,
   handlerResume,
   handlerRestart,
+  handlerConfig,
 }) => {
   return (
-    <div className="countdown__controls flex space-x-4">
+    <div className="countdown__controls flex justify-center items-center space-x-4">
       {isPomodoroActive ? (
         <button
           className="transition-all text-5xl lg:text-8xl opacity-10 hover:opacity-100 scale-100 active:scale-90"
@@ -38,6 +39,12 @@ const PomodoroControls: React.FC<PomodoroControlsInterface> = ({
         // disabled={!isPomodoroActive}
       >
         <MdStop />
+      </button>
+      <button
+        className="transition-all text-4xl lg:text-6xl opacity-10 scale-110 hover:opacity-100 active:scale-100"
+        onClick={handlerConfig}
+      >
+        <MdSettings />
       </button>
     </div>
   );

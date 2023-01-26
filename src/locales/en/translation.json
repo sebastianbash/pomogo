@@ -1,4 +1,72 @@
 {
-  "title": "PomoGO - Home",
-  "notFound": "Page not found."
+  "pages": {
+    "home": {
+      "title": "PomoGo"
+    },
+    "404": {
+      "title": "PomoGo",
+      "message": "Page not found"
+    }
+  },
+  "pomodoro": {
+    "title": "Pomodoro",
+    "countdown": {
+    },
+    "settings": {
+      "modal": {
+        "header": "Edit Configuration",
+        "body": {
+          "times": {
+            "default": "Default",
+            "hard": "Hard",
+            "custom": "Custom"
+          },
+          "states": {
+            "workTime": "Work",
+            "shortBreak": "Short",
+            "longBreak": "Long"
+          },
+          "descriptions": {
+            "workTime": "Time to work",
+            "shortBreak": "Time to short break",
+            "longBreak": "Time to long break"
+          },
+          "autoStart": {
+            "label": "Auto Start",
+            "description": "Start the next state automatically"
+          }
+        },
+        "footer": {
+          "save": "Update Pomodoro",
+          "cancel": "Cancel"
+        },
+        "tabs": {
+          "workTime": "work",
+          "shortBreak": "short",
+          "longBreak": "long"
+        },
+        "defaultTab": {
+          "time": {
+            "workTime": "25 Min",
+            "shortBreak": "5 Min",
+            "longBreak": "15 Min"
+          }
+        },
+        "hardTab": {
+          "time": {
+            "workTime": "50 Min",
+            "shortBreak": "10 Min",
+            "longBreak": "30 Min"
+          }
+        },
+        "customTab": {
+          "time": {
+          "workTime": "0 Min",
+          "shortBreak": "0 Min",
+          "longBreak": "0 Min"
+          }
+        }
+      }
+    }
+  }
 }
