@@ -1,8 +1,10 @@
 import { PomodoroContext } from "@/context";
 import { useContext, useEffect } from "react";
+import { withTranslation } from "react-i18next";
 import { TabStatesInterface } from "../interfaces";
 
 const TabStates: React.FC<TabStatesInterface> = ({
+  t,
   work,
   short,
   long,
@@ -11,6 +13,8 @@ const TabStates: React.FC<TabStatesInterface> = ({
   longState,
 }) => {
   const { executing } = useContext(PomodoroContext);
+
+  const lngTabButtons = "pomodoro.components.tabStates.tabs";
 
   useEffect(() => {
     handleStates();
@@ -53,13 +57,13 @@ const TabStates: React.FC<TabStatesInterface> = ({
       <div className="countdown__state-tabs w-full">
         <div className="tabs w-full flex justify-between items-center">
           <button ref={work} className="tab flex-1" onClick={workState}>
-            <span className="md:text-2xl">Work</span>
+            <span className="md:text-2xl">{t(`${lngTabButtons}.work`)}</span>
           </button>
           <button ref={short} className="tab flex-1" onClick={shortState}>
-            <span className="md:text-2xl">Short</span>
+            <span className="md:text-2xl">{t(`${lngTabButtons}.short`)}</span>
           </button>
           <button ref={long} className="tab flex-1" onClick={longState}>
-            <span className="md:text-2xl">Long</span>
+            <span className="md:text-2xl">{t(`${lngTabButtons}.long`)}</span>
           </button>
         </div>
       </div>
@@ -67,4 +71,4 @@ const TabStates: React.FC<TabStatesInterface> = ({
   );
 };
 
-export default TabStates;
+export default withTranslation()(TabStates);
