@@ -1,3 +1,4 @@
+import { lngTabButtons } from "@/components/constants";
 import { PomodoroContext } from "@/context";
 import { useContext, useEffect } from "react";
 import { withTranslation } from "react-i18next";
@@ -13,8 +14,6 @@ const TabStates: React.FC<TabStatesInterface> = ({
   longState,
 }) => {
   const { executing } = useContext(PomodoroContext);
-
-  const lngTabButtons = "pomodoro.components.tabStates.tabs";
 
   useEffect(() => {
     handleStates();

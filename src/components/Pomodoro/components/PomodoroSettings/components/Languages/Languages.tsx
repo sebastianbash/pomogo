@@ -1,11 +1,10 @@
+import { lngLanguages } from "@/components/constants";
 import { handleChangeLng } from "@/utils";
 import { withTranslation } from "react-i18next";
 import { MdTranslate } from "react-icons/md";
 import { LanguagesInterface } from "../interfaces";
 
 const Languages: React.FC<LanguagesInterface> = ({ t }) => {
-  const lngLanguages: string = "pomodoro.settings.modal.body.languages";
-
   return (
     <div className="border-t-2">
       <div className="flex items-center">

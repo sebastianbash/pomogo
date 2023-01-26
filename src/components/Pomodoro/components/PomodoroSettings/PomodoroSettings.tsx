@@ -1,3 +1,4 @@
+import { lngModal } from "@/components/constants";
 import { useState } from "react";
 import { withTranslation } from "react-i18next";
 import { MdOutlineSettings, MdClose } from "react-icons/md";
@@ -12,8 +13,6 @@ const PomodoroSettings: React.FC<PomodoroSettingsInterface> = ({
     "default" | "hard" | "custom"
   >("default");
   const [isAutoStart, setIsAutoStart] = useState(false); // * Auto Start next timer
-
-  const lngModal: string = "pomodoro.settings.modal";
 
   return (
     <div className="countdown__config-modal absolute bg-[var(--light-modal-bg-color)] dark:bg-[var(--dark-modal-bg-color)] w-11/12 h-4/5 md:w-[700px] md:h-2/4 lg:w-[900px] lg:h-[500px] rounded-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

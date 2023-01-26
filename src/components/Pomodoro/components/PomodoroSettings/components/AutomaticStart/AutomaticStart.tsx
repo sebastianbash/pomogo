@@ -1,3 +1,4 @@
+import { automaticLng } from "@/components/constants";
 import React from "react";
 import { withTranslation } from "react-i18next";
 import { BsToggleOff, BsToggleOn } from "react-icons/bs";
@@ -8,7 +9,6 @@ const AutomaticStart: React.FC<AutomaticStartInterface> = ({
   automaticStart,
   setAutomaticStart,
 }) => {
-  const automaticLng: string = "pomodoro.settings.modal.body.autoStart";
   return (
     <div className="border-t-2 mb-4">
       <div className="flex items-center">

@@ -1,3 +1,11 @@
+import {
+  lngDescriptions,
+  lngModalTabs,
+  lngTabsCustomTime,
+  lngTabsDefaultTime,
+  lngTabsHardTime,
+  lngTimes,
+} from "@/components/constants";
 import { PomodoroContext } from "@/context";
 import { useContext, useRef } from "react";
 import { withTranslation } from "react-i18next";
@@ -12,13 +20,6 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   customTabNav,
 }) => {
   const { executing } = useContext(PomodoroContext);
-
-  const lngModalTabs: string = "pomodoro.settings.modal.body.states";
-  const lngTabsDefaultTime: string = "pomodoro.settings.modal.defaultTab.time";
-  const lngTabsHardTime: string = "pomodoro.settings.modal.hardTab.time";
-  const lngTabsCustomTime: string = "pomodoro.settings.modal.customTab.time";
-  const lngTimes: string = "pomodoro.settings.modal.body.times";
-  const lngDescriptions: string = "pomodoro.settings.modal.body.descriptions";
 
   //* Refs
   const workStateRef = useRef<HTMLButtonElement>();
