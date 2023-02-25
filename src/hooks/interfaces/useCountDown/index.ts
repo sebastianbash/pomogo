@@ -12,6 +12,7 @@ export interface ActionsProps {
   pause: () => void;
   resume: () => void;
   reset: (ttc: number) => void;
+  complete: (nextTimer: number) => void;
 }
 
 export interface UseCountdownProps {

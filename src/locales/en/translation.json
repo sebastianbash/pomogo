@@ -49,7 +49,7 @@
           }
         },
         "footer": {
-          "save": "Update Pomodoro",
+          "save": "Update",
           "cancel": "Cancel"
         },
         "tabs": {
@@ -77,6 +77,10 @@
           "shortBreak": "0 Min",
           "longBreak": "0 Min"
           }
+        },
+        "theme": {
+          "label": "Theme",
+          "description": "Change the theme style to dark or light"
         }
       }
     }

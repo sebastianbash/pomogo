@@ -14,3 +14,4 @@ export const lngDescriptions: string =
   "pomodoro.settings.modal.body.descriptions";
 export const lngLanguages: string = "pomodoro.settings.modal.body.languages";
 export const lngTabButtons = "pomodoro.components.tabStates.tabs";
+export const lngThemeToggle = "pomodoro.settings.modal.theme";

@@ -49,7 +49,7 @@
           }
         },
         "footer": {
-          "save": "Actualizar Pomodoro",
+          "save": "Actualizar",
           "cancel": "Cancelar"
         },
         "tabs": {
@@ -77,6 +77,10 @@
             "shortBreak": "0 Min",
             "longBreak": "0 Min"
           }
+        },
+        "theme": {
+          "label": "Tema",
+          "description": "Cambia el color del tema a oscuro o claro"
         }
       }
     }

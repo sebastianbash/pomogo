@@ -1,23 +1,25 @@
 import { lngModal } from "@/components/constants";
-import { useState } from "react";
+import { PomodoroContext } from "@/context";
+import { useContext } from "react";
 import { withTranslation } from "react-i18next";
 import { MdOutlineSettings, MdClose } from "react-icons/md";
 import { PomodoroSettingsInterface } from "../interfaces";
-import { AutomaticStart, DinamicTabs, Languages } from "./components";
+import { AutomaticStart, DinamicTabs, Languages, Theme } from "./components";
 
 const PomodoroSettings: React.FC<PomodoroSettingsInterface> = ({
   t,
   handlerCloseConfig,
 }) => {
-  const [tabConfiguration, setTabConfiguration] = useState<
-    "default" | "hard" | "custom"
-  >("default");
-  const [isAutoStart, setIsAutoStart] = useState(false); // * Auto Start next timer
+  // const [tabConfiguration, setTabConfiguration] = useState<
+  //   "default" | "hard" | "custom"
+  // >("default");
+  const { isAutomatic, changeToAutomatic, pomodoroType, setTypePomodoro } =
+    useContext(PomodoroContext);
 
   return (
-    <div className="countdown__config-modal absolute bg-[var(--light-modal-bg-color)] dark:bg-[var(--dark-modal-bg-color)] w-11/12 h-4/5 md:w-[700px] md:h-2/4 lg:w-[900px] lg:h-[500px] rounded-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="countdown__config-modal absolute bg-[var(--light-modal-bg-color)] dark:bg-[var(--dark-modal-bg-color)] w-11/12 h-[90%] md:w-[700px] md:h-2/4 lg:w-[700px] lg:h-[600px] rounded-2xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="countdown__config-container h-full py-4 px-8 flex flex-col flex-wrap">
-        <div className="countdown__config-header border-b-2 pb-2 md:mb-6">
+        <div className="countdown__config-header border-b-2 dark:border-white/10 pb-2 md:mb-6">
           <h2 className="text-xl flex items-center">
             <span className="mr-4">
               <MdOutlineSettings />
@@ -31,22 +33,23 @@ const PomodoroSettings: React.FC<PomodoroSettingsInterface> = ({
             </button>
           </h2>
         </div>
-        <div className="countdown__config-body">
+        <div className="countdown__config-body w-full md:space-y-4 lg:space-y-8">
           <DinamicTabs
-            activeTab={tabConfiguration}
-            defaultTabNav={() => setTabConfiguration("default")}
-            hardTabNav={() => setTabConfiguration("hard")}
-            customTabNav={() => setTabConfiguration("custom")}
+            activeTab={pomodoroType}
+            defaultTabNav={() => setTypePomodoro("default")}
+            hardTabNav={() => setTypePomodoro("hard")}
+            customTabNav={() => setTypePomodoro("custom")}
           />
           <AutomaticStart
-            automaticStart={isAutoStart}
-            setAutomaticStart={() => setIsAutoStart(!isAutoStart)}
+            automaticStart={isAutomatic}
+            setAutomaticStart={changeToAutomatic}
           />
+          <Theme />
           <Languages />
         </div>
-        <div className="countdown__config-footer flex justify-center items-center space-x-6 md:mb-2 mt-auto border-t-2 pt-4">
+        <div className="countdown__config-footer flex justify-center items-center space-x-4 md:mb-2 mt-auto border-t-2 dark:border-white/10 pt-4">
           <button
-            className="py-2 px-4 border rounded-lg hover:border-gray-500 transition-all active:scale-95"
+            className="py-2 px-4 border rounded-lg border-[var(--blue-color)] dark:border-[var(--grey-color)] transition-all active:scale-95"
             onClick={handlerCloseConfig}
           >
             {t(`${lngModal}.footer.cancel`)}

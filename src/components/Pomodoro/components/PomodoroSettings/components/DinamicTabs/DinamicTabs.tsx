@@ -46,7 +46,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Default Tab
   const defaultTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-default space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-default space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-between">
         <button
           className={
             executing.active === "work"
@@ -138,7 +138,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Hard Tab
   const hardTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-between">
         <button
           className={
             executing.active === "work"
@@ -230,7 +230,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   //* Custom Tab
   const customTab = (): JSX.Element => {
     return (
-      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+      <div className="countdown__config-tabs-hard space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-between">
         <button
           className={
             executing.active === "work"
@@ -320,8 +320,8 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
   };
 
   return (
-    <div className="countdown__config-tabs">
-      <div className="countdown__config-tabs-navigation space-x-4 mt-4 md:mt-0 md:mb-4">
+    <div className="countdown__config-tabs w-full">
+      <div className="countdown__config-tabs-navigation space-x-6 mt-4 md:mt-0 md:mb-4">
         <button
           className={
             activeTab === "default"
@@ -356,7 +356,7 @@ const DinamicTabs: React.FC<DinamicTabsInterface> = ({
           {t(`${lngTimes}.custom`)}
         </button>
       </div>
-      <div className="countdown__config-tabs-content mt-4 md:mt-0 mb-4">
+      <div className="countdown__config-tabs-content w-full mt-4 md:mt-0 mb-4">
         {renderTab()}
       </div>
     </div>

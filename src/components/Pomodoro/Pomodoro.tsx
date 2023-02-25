@@ -15,13 +15,18 @@ const Pomodoro: React.FC<PomodoroInterface> = () => {
     timeLeft,
     pomodoro,
     startCounter,
+    executing,
+    isAutomatic,
+    pomodoroType,
     setTimer,
     startTimer,
+    startTimerBol,
     resumeTimer,
     pauseTimer,
     resetTimer,
     updateExecute,
     setCurrentTimer,
+    onCompleteTimer,
   } = useContext(PomodoroContext);
 
   const [newTimer, setNewTimer] = useState<PomodoroState>({
@@ -31,7 +36,8 @@ const Pomodoro: React.FC<PomodoroInterface> = () => {
     active: "work",
   }); //* Initial pomodoro state (default)
   const [isFirstTime, setIsFirstTime] = useState<boolean>(true); // * On load the app.
-  const [isConfigOpen, setIsConfigOpen] = useState(false); // * Config open state
+  const [isConfigOpen, setIsConfigOpen] = useState<boolean>(false); // * Config open state
+  const [pomodoroLoop, setPomodoroLoop] = useState<number>(0); // * Loops of pomodoro (2 max and set long rest)
 
   const workStateRef = useRef<HTMLButtonElement>();
   const shortStateRef = useRef<HTMLButtonElement>();
@@ -40,8 +46,9 @@ const Pomodoro: React.FC<PomodoroInterface> = () => {
   //* start the timer during the first render
   useEffect(() => {
     updateExecute(newTimer); // * Set default pomodoro state to PomodoroProvider hooks.
-    // console.log("pomodoro:", pomodoro, " timeLeft: ", timeLeft);
-  }, [pomodoro, timeLeft]);
+    evaluatePomodoroType();
+    evaluateCompleteTimer();
+  }, [pomodoro, timeLeft, isAutomatic, pomodoroLoop, pomodoroType]);
 
   //* Handle the timer (controls)
   // const handleRestart = useCallback((): void => {
@@ -72,6 +79,77 @@ const Pomodoro: React.FC<PomodoroInterface> = () => {
   const handleRestart = (): void => {
     resetTimer(pomodoro);
     setIsFirstTime(true);
+  };
+
+  //* evaluate when the type of pomodoro change
+  const evaluatePomodoroType = (): void => {
+    switch (pomodoroType) {
+      case "hard":
+        setNewTimer({
+          ...newTimer,
+          work: minsToMillisecons(50),
+          short: minsToMillisecons(10),
+          long: minsToMillisecons(30),
+        });
+        break;
+      case "custom":
+        setNewTimer({
+          ...newTimer,
+          work: minsToMillisecons(1),
+          short: minsToMillisecons(1),
+          long: minsToMillisecons(1),
+        });
+        break;
+      default:
+        setNewTimer(newTimer);
+    }
+  };
+
+  //* evaluates when the timer is completed.
+  const evaluateCompleteTimer = (): void => {
+    const currentTimer: string = executing.active;
+    if (!isAutomatic && timeLeft === 0) {
+      switch (currentTimer) {
+        case "work":
+          setShortState();
+          break;
+        case "short":
+          setWorkState();
+          break;
+        case "long":
+          setLongState();
+          break;
+        default:
+          setWorkState();
+      }
+    }
+    if (isAutomatic && timeLeft === 0 && pomodoroLoop <= 1) {
+      switch (currentTimer) {
+        case "work":
+          setShortState();
+          onCompleteTimer(newTimer.short);
+          setPomodoroLoop(pomodoroLoop + 1);
+          startTimerBol();
+          break;
+        case "short":
+          setWorkState();
+          onCompleteTimer(newTimer.work);
+          setPomodoroLoop(pomodoroLoop + 1);
+          startTimerBol();
+          break;
+        default:
+          setWorkState();
+          onCompleteTimer(newTimer.work);
+          setPomodoroLoop(0);
+          startTimerBol();
+      }
+    } else if (isAutomatic && timeLeft === 0 && pomodoroLoop === 2) {
+      setLongState();
+      onCompleteTimer(newTimer.long);
+      startTimerBol();
+      setPomodoroLoop(0);
+      return;
+    }
   };
 
   //* Set the current timer state (tabs)

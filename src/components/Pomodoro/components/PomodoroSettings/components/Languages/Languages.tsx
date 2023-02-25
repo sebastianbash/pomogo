@@ -6,10 +6,10 @@ import { LanguagesInterface } from "../interfaces";
 
 const Languages: React.FC<LanguagesInterface> = ({ t }) => {
   return (
-    <div className="border-t-2">
+    <div className="">
       <div className="flex items-center">
         <h2 className="font-bold">{t(`${lngLanguages}.label`)}</h2>
-        <span className="text-xl ml-4">
+        <span className="text-xl ml-auto">
           <MdTranslate />
         </span>{" "}
       </div>

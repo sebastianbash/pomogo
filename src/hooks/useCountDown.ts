@@ -95,9 +95,26 @@ const useCountDown: UseCountdownProps = (
     }
   }, []);
 
+  const complete = useCallback((nextTimer: number) => {
+    const nextTimerToCount: number =
+      nextTimer !== undefined ? nextTimer : timeToCount;
+
+    if (timer.current.timeLeft === 0) {
+      window.cancelAnimationFrame(timer.current.requestId);
+      timer.current = {
+        timeLeft: 0,
+        started: null,
+        lastInterval: null,
+        timeToCount: nextTimerToCount,
+        requestId: window.requestAnimationFrame(run),
+      };
+      setTimeLeft(nextTimerToCount);
+    }
+  }, []);
+
   const actions = useMemo<ActionsProps>(
-    () => ({ time, start, pause, resume, reset }),
-    [time, start, pause, resume, reset],
+    () => ({ time, start, pause, resume, reset, complete }),
+    [time, start, pause, resume, reset, complete],
   );
 
   useEffect(() => {

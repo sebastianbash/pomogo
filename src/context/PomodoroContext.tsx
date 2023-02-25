@@ -11,9 +11,13 @@ export const PomodoroContext = createContext<PomodoroContextProps>(
 );
 
 export const PomodoroProvider = ({ children }: PomodoroProviderProps) => {
+  const [pomodoroType, setPomodoroType] = useState<
+    "default" | "hard" | "custom"
+  >("default");
   const [pomodoro, setPomodoro] = useState<number>(1500000);
   const [executing, setExecuting] = useState<Pomodoro>({} as Pomodoro);
   const [startCounter, setStartCounter] = useState<boolean>(false);
+  const [isAutomatic, setIsAutomatic] = useState<boolean>(false);
   const [timeLeft, actions] = useCountDown(pomodoro, 1000);
 
   // * Set current timer
@@ -27,6 +31,9 @@ export const PomodoroProvider = ({ children }: PomodoroProviderProps) => {
     setStartCounter(false);
     actions.time(timer);
   };
+
+  //* Start animate boolean
+  const startTimerBol = (): void => setStartCounter(true);
 
   // * Start animate
   const startTimer = (time?: number): void => {
@@ -52,6 +59,13 @@ export const PomodoroProvider = ({ children }: PomodoroProviderProps) => {
     setStartCounter(false);
     actions.reset(resetTo);
   };
+
+  // * onComplete
+  const onCompleteTimer = (nextTimer: number): void =>
+    actions.complete(nextTimer);
+
+  // * Set automatic start
+  const changeToAutomatic = (): void => setIsAutomatic(!isAutomatic);
 
   // * Clear session storage
   const SettingsBtn = (): void => {
@@ -86,21 +100,29 @@ export const PomodoroProvider = ({ children }: PomodoroProviderProps) => {
     }
   };
 
+  const setTypePomodoro = (type: typeof pomodoroType) => setPomodoroType(type);
+
   return (
     <PomodoroContext.Provider
       value={{
         timeLeft,
         pomodoro,
         executing,
+        isAutomatic,
         startCounter,
+        pomodoroType,
         setTimer,
         startTimer,
+        startTimerBol,
         resumeTimer,
         pauseTimer,
         resetTimer,
+        onCompleteTimer,
         updateExecute,
         SettingsBtn,
+        changeToAutomatic,
         setCurrentTimer,
+        setTypePomodoro,
       }}
     >
       {children}
