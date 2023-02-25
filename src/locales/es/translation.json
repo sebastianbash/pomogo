@@ -1,4 +1,88 @@
 {
-  "title": "PomoGO - Inicio",
-  "notFound": "Página no encontrada."
+  "pages": {
+    "home": {
+      "title": "PomoGo"
+    },
+    "notFound": {
+      "title": "PomoGo",
+      "message": "Página no encontrada"
+    }
+  },
+  "pomodoro": {
+    "title": "Pomodoro",
+    "components": {
+      "tabStates": {
+        "tabs": {
+          "work": "Trabajo",
+          "short": "Corto",
+          "long": "Largo"
+        }
+      }
+    },
+    "settings": {
+      "modal": {
+        "header": "Editar Ajustes",
+        "body": {
+          "times": {
+            "default": "Por defecto",
+            "hard": "Difícil",
+            "custom": "Personalizado"
+          },
+          "states": {
+            "workTime": "Trabajo",
+            "shortBreak": "Corto",
+            "longBreak": "Largo"
+          },
+          "descriptions": {
+            "workTime": "Tiempo de Trabajar",
+            "shortBreak": "Tiempo para un descanso corto",
+            "longBreak": "Tiempo para un descanso largo"
+          },
+          "autoStart": {
+            "label": "Auto Empezado",
+            "description": "Comienza el siguiente temporizador automaticamente"
+          },
+          "languages": {
+            "label": "Idiomas",
+            "english": "Inglés",
+            "spanish": "Español"
+          }
+        },
+        "footer": {
+          "save": "Actualizar",
+          "cancel": "Cancelar"
+        },
+        "tabs": {
+          "workTime": "Trabajo",
+          "shortBreak": "Corto",
+          "longBreak": "Largo"
+        },
+        "defaultTab": {
+          "time": {
+            "workTime": "25 Min",
+            "shortBreak": "5 Min",
+            "longBreak": "15 Min"
+          }
+        },
+        "hardTab": {
+          "time": {
+            "workTime": "50 Min",
+            "shortBreak": "10 Min",
+            "longBreak": "30 Min"
+          }
+        },
+        "customTab": {
+          "time": {
+            "workTime": "0 Min",
+            "shortBreak": "0 Min",
+            "longBreak": "0 Min"
+          }
+        },
+        "theme": {
+          "label": "Tema",
+          "description": "Cambia el color del tema a oscuro o claro"
+        }
+      }
+    }
+  }
 }

@@ -4,8 +4,13 @@
 
 :root {
   --black-color: #000;
-  --white-color: #fff;
+  --white-color: #FFF;
   --dark-bg-color: #242424;
+  --light-modal-bg-color: #F1F5F9;
+  --dark-modal-bg-color: #1E1E1E;
+  --blue-color: #0a1b3f;
+  --light-blue-color: #334575;
+  --grey-color: #e2e2e2;
 
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -34,6 +39,10 @@ body {
 
 *:focus {
   outline: none;
+}
+
+.gl__countdown {
+  font-family: "Bebas Neue", cursive;
 }
 
 @media (prefers-color-scheme: light) {
